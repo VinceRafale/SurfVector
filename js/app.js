@@ -1,5 +1,11 @@
 (function($) {
 
+/////////
+//Database design
+////////
+//List all the databases in the application. 
+//Create the applicaiton 
+
     var ScrippsRanchLocation = new google.maps.LatLng(32.88916, -117.25316);
 
     var Map = Backbone.Model.extend({
@@ -12,6 +18,20 @@
         }
 
     });
+
+    //Create the surf marker model. right now, all it is
+    //is a url
+    //The url for the client goes in the collection init method, since we
+    //are trying to create 
+    var SurfMarker = Backbone.Model.extend({
+        // url: 'http://localhost:8080/messages'
+    })
+
+    var Markers = Backbone.Collection.extend({
+        model: SurfMarker,
+        url: 'http://localhost:8080/markers'
+
+    })
     
     var MapView = Backbone.View.extend({
         map: null,
@@ -116,6 +136,14 @@
             this.mapModel = new Map({});
             mapView = new MapView(this.mapModel);
             headerView = new HeaderView({view:this});
+
+            ///////
+            //Test out the server api by decalre and instance of 
+            //a map marker collection
+
+            markerCollection = new Markers({});
+            console.log(markerCollection.url); 
+            //////
             return this;
         },
         index: function() {

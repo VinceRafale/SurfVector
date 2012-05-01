@@ -3,10 +3,10 @@
 
 
 /* TEAM */
-  <your title>: <your name>
+  <Mr.>: <Nick Yeager>
   Site:
-  Twitter:
-  Location:
+  Twitter:@yeagern
+  Location:Tucson, AZ
 
 /* THANKS */
   Names (& URL):
